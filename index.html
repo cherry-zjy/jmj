@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  <title>极美家</title>
+  <link rel="icon" type="img/png" href="./static/images/logo.png">
+  <script src="./static/flexible_rem.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+<script src="./static/js/sha1.js"></script>
+<!-- <script src="./static/html2canvas.min.js"></script> -->
+<!-- <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script> -->
+<script>
+  //调用微信JS api 支付
+  function jsApiCall(jsparam) {
+    WeixinJSBridge.invoke(
+      "getBrandWCPayRequest",
+      eval("(" + jsparam + ")"), //josn串
+      //'getBrandWCPayRequest', jsparam , //josn串
+      function (res) {
+        if (res.err_msg == "get_brand_wcpay_request:ok") {
+          window.location.href = '#/mine/orderlist?typeIndex=2';
+        } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+        else {}
+      }
+    );
+  }
+
+  function callpay(jsparam) {
+    if (typeof WeixinJSBridge == "undefined") {
+      if (document.addEventListener) {
+        document.addEventListener("WeixinJSBridgeReady", jsApiCall, false);
+      } else if (document.attachEvent) {
+        document.attachEvent("WeixinJSBridgeReady", jsApiCall);
+        document.attachEvent("onWeixinJSBridgeReady", jsApiCall);
+      }
+    } else {
+      jsApiCall(jsparam);
+    }
+  }
+  function jsApiCall1(jsparam, headid) {
+    WeixinJSBridge.invoke(
+      "getBrandWCPayRequest",
+      eval("(" + jsparam + ")"), //josn串
+      //'getBrandWCPayRequest', jsparam , //josn串
+      function (res) {
+        if (res.err_msg == "get_brand_wcpay_request:ok") {
+          window.location.href = '#/goods/suborder/success?headid='+headid;
+        } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+        else {}
+      }
+    );
+  }
+
+  function callpayDaily(jsparam, headid) {
+    if (typeof WeixinJSBridge == "undefined") {
+      if (document.addEventListener) {
+        document.addEventListener("WeixinJSBridgeReady", jsApiCall1, false);
+      } else if (document.attachEvent) {
+        document.attachEvent("WeixinJSBridgeReady", jsApiCall1);
+        document.attachEvent("onWeixinJSBridgeReady", jsApiCall1);
+      }
+    } else {
+      jsApiCall1(jsparam, headid);
+    }
+  }
+  function jsApiCall2(jsparam) {
+    WeixinJSBridge.invoke(
+      "getBrandWCPayRequest",
+      eval("(" + jsparam + ")"), //josn串
+      //'getBrandWCPayRequest', jsparam , //josn串
+      function (res) {
+        if (res.err_msg == "get_brand_wcpay_request:ok") {
+          window.location.href = '#/mine/wallet/payin/success';
+        } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+        else {}
+      }
+    );
+  }
+
+  function callpayPayIn(jsparam) {
+    if (typeof WeixinJSBridge == "undefined") {
+      if (document.addEventListener) {
+        document.addEventListener("WeixinJSBridgeReady", jsApiCall2, false);
+      } else if (document.attachEvent) {
+        document.attachEvent("WeixinJSBridgeReady", jsApiCall2);
+        document.attachEvent("onWeixinJSBridgeReady", jsApiCall2);
+      }
+    } else {
+      jsApiCall2(jsparam);
+    }
+  }
+
+</script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.5.4/eruda.min.js"></script>
+
+<script>
+  eruda.init();
+
+  console.log('控制台打印信息');
+
+</script> -->
+
+</html>

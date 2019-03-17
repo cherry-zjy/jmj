@@ -1,0 +1,251 @@
+$base_active: #F7B500;
+$base_nomal:#808080;
+$base_fontSize: 16px;
+
+@function px2em($px, $base-font-size: 16px) {
+  @if (unitless($px)) {
+    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+    @return px2em($px + 0px); // That may fail. 
+  }
+
+  @else if (unit($px)==em) {
+    @return $px;
+  }
+
+  @return ($px / $base-font-size) * 1em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: #fff;
+  margin: 0px !important;
+  font-family: "方正兰亭黑";
+}
+
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.026rem;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+// 清除浮动
+.clear {
+  clear: both;
+}
+
+// 单选框的默认样式
+// <td class="radio">
+//   <div>
+//     <input type="radio" name="ischoice" id="item1">
+//     <label for="item1"></label>
+//   </div>
+// </td>
+.radio {
+  display: flex;
+  align-items: center;
+
+  div {
+    margin-top: 0.2rem;
+    position: relative;
+    line-height: 0.533rem;
+
+    input {
+      width: 0.533rem;
+      height: 0.533rem;
+      border-radius: 50%;
+      opacity: 0;
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 0.533rem;
+      height: 0.533rem;
+      border-radius: 50%;
+      border: 1px solid #b3b3b3;
+    }
+
+    /*设置选中的input的样式*/
+    /* + 是兄弟选择器,获取选中后的label元素*/
+    input[type="radio"]:checked+label {
+      background-color: #f7b500;
+      border: 1px solid #f7b500;
+    }
+
+    input[type="radio"]:checked+label::after {
+      position: absolute;
+      content: "";
+      width: 0.15rem;
+      height: 0.32rem;
+      // top: 0.1rem;
+      left: 0.15rem;
+      border: 1px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+// 复选框的默认样式
+// <p class="checkbox">
+//   <input type="checkbox">
+//   <label for=""></label>
+// </p>
+.checkbox {
+  position: relative;
+  line-height: 0.533rem;
+
+  input {
+    width: 0.533rem;
+    height: 0.533rem;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 0.533rem;
+    height: 0.533rem;
+    border-radius: 50%;
+    border: 1px solid #b3b3b3;
+  }
+
+  /*设置选中的input的样式*/
+  /* + 是兄弟选择器,获取选中后的label元素*/
+  input[type="checkbox"]:checked+label {
+    background-color: #f7b500;
+    border: 1px solid #f7b500;
+  }
+
+  input[type="checkbox"]:checked+label::after {
+    position: absolute;
+    content: "";
+    width: 0.15rem;
+    height: 0.32rem;
+    // top: 0.06rem;
+    left: 0.15rem;
+    border: 1px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+}
+
+// 二维码定位
+#qrcode {
+  img {
+    display: inline-block !important;
+    padding: 0.2rem;
+    background-color: #fff;
+  }
+
+  .logo {
+    position: absolute;
+    left: calc(50% - 0.3rem);
+    top: calc(50% - 0.3rem);
+    width: 0.6rem;
+    padding: 0;
+  }
+}
+
+// 分享按钮
+// 分享
+.share-icon {
+  position: fixed;
+  bottom: 4rem;
+  right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  // padding: 0.165rem;
+  border-radius: 50% 50%;
+  border: 1px solid #ccc;
+  animation: jump 1s infinite;
+
+  img {
+    width: 100%;
+  }
+}
+
+// 分享打开的商品详情添加logo图标
+.share-logo {
+  margin: 0.265rem 0;
+  height: 1.8rem;
+  color: #333333;
+  font-size: 0.4rem;
+  background-color: #fff;
+  padding: 0 0.265rem;
+
+  .left {
+    line-height: 1.8rem;
+
+    span {
+      margin-left: 0.265rem;
+      font-size: 0.4rem;
+    }
+
+    img {
+      width: 1.8rem;
+      float: left;
+    }
+  }
+
+  .right {
+    img {
+      width: 0.8rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(0px, -15px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+// 消息
+.des,
+.detail-box,
+.step {
+  width: 100%;
+
+  p {
+    width: 100%;
+
+    img {
+      width: 100% !important;
+    }
+  }
+}

@@ -1,0 +1,180 @@
+/*
+  
+  title:主页面修改mint-ui样式
+  date:2018/08/28
+*/
+/* 
+轮播
+  （首页）
+*/
+.bannerAll,
+.listAll {
+  .mint-swipe-items-wrap {
+    background-color: #fff !important;
+  }
+
+  .mint-swipe-indicators {
+    bottom: -5px;
+
+    .mint-swipe-indicator {
+      width: 0.8rem;
+      height: 0.055rem;
+      background-color: #000;
+      border-radius: 0;
+    }
+
+    .is-active {
+      background-color: #F7B500;
+    }
+  }
+}
+
+.mint-swipe-indicator.is-active {
+  background: #F7B500;
+}
+
+.listAll {
+  .mint-swipe-indicators {
+    bottom: 5px;
+  }
+}
+
+// message box 样式修改
+.mint-msgbox {
+  width: 80%;
+  border-radius: 5px;
+
+  .mint-msgbox-btns {
+    height: 50px;
+
+    .mint-msgbox-btn {
+      line-height: 50px;
+    }
+
+    .mint-msgbox-confirm {
+      color: #F7B500;
+    }
+  }
+}
+
+.mint-toast {
+  z-index: 4000;
+}
+
+.mint-indicator {
+  z-index: 4000;
+
+  .mint-indicator-wrapper {
+    z-index: 4000;
+  }
+}
+
+.shopping {
+
+  // 左滑删除
+  .mint-cell-wrapper {
+    background: none;
+    text-align: left;
+    // height: 1.869rem;
+    border: none;
+  }
+
+  .mint-cell-left {
+    display: none;
+  }
+
+  .mint-cell-title {
+    display: none;
+  }
+
+  .mint-cell-value {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .mint-cell:last-child {
+    background: none;
+  }
+
+  // 删除按钮
+  .mint-cell-swipe-button {
+    line-height: 1.85rem;
+  }
+
+}
+
+// 修改 js弹框样式
+.mint-msgbox {
+  .mint-msgbox-btn {
+    font-size: 0.4rem;
+  }
+
+  .mint-msgbox-input {
+    input {
+      line-height: .8733rem;
+    }
+  }
+}
+
+// field 表单对齐统一样式
+.editPsw {
+  .mint-cell-wrapper {
+    background-image: none;
+    line-height: 1.333rem;
+
+    // 左侧的lable
+    .mint-cell-title {
+      width: 1.5rem;
+      margin-right: 0.265rem;
+
+      .mint-cell-text {
+        display: inline-block;
+        width: 100%;
+        color: #333333;
+        text-align-last: justify;
+        vertical-align: top;
+      }
+    }
+
+    // 右侧的input内容
+    .mint-cell-value {
+      padding-left: 0.2rem;
+
+      .mint-field-core {
+        color: #ccc;
+        font-family: "Arial"
+      }
+
+      .mint-field-core::-webkit-input-placeholder {
+        color: #808080;
+      }
+    }
+
+    .mint-cell:last-child {
+      background-image: none;
+    }
+  }
+
+  .form2 {
+    .mint-cell-title {
+      width: 2.0rem;
+      margin-right: 0.265rem;
+    }
+  }
+}
+
+// 三级联动收货地址
+.page-content {
+  .mint-cell-title {
+    display: none;
+    // flex: none;
+    // width: 2.8rem !important;
+    // padding-left: 0.2rem;
+  }
+
+  .mint-cell-allow-right::after {
+    width: 10px;
+    height: 10px;
+  }
+}
